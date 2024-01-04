@@ -1,27 +1,23 @@
-grammar par;
+parser grammar par;
 
-program : FUNCTION* EOF;
+options{tokenVocab=lex;}
 
-FUNCTION : HEAD BODY;
+program : function* EOF;
 
-HEAD : RETURN NAME TYPE_PARAMETERS? '(' ARGS ')';
+function : head BRACKET_OW statement+ BRACKET_CW;
 
-RETURN : TYPE_IDENTIFIER;
-NAME : IDENTIFIER;
+head : type IDENTIFIER type_parameters? BRACKET_OR args BRACKET_CR;
 
-TYPE_PARAMETERS : '<' TYPE_PARAMS '>';
-TYPE_PARAMS : TYPE_IDENTIFIER | TYPE_IDENTIFIER ',' TYPE_PARAMS;
+type_parameters : BRACKET_OS type_params BRACKET_CS;
+type_params : type | type COMMA type_params;
 
-ARGS : IDENTIFIER | IDENTIFIER ',' ARGS;
+args : type IDENTIFIER | type IDENTIFIER COMMA args;
 
-BODY: '{' STATEMENT+ '}';
-STATEMENT : RETURN_S | ASSIGN_S | INIT_S;
 
-RETURN_S : 'return' ';' | 'return' IDENTIFIER ';';
-ASSIGN_S : IDENTIFIER '=' IDENTIFIER ';';
+statement : return_s | assign_s | init_s;
 
-INIT_S : TYPE_IDENTIFIER IDENTIFIER ';'; // int x;
+return_s : RETURN IDENTIFIER SEMICOLON;
+assign_s : IDENTIFIER EQUAL IDENTIFIER SEMICOLON;
+init_s : type IDENTIFIER SEMICOLON;
 
-TYPE_IDENTIFIER : [a-zA-Z*]+;
-IDENTIFIER : [a-zA-Z]+;
-WS: [\r\t\n] -> skip;
+type: TYPE_IDENTIFIER | IDENTIFIER;
