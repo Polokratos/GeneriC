@@ -1,3 +1,4 @@
+DEBUG_FLAG = True
 from antlr4 import *
 
 from generated.parVisitor import parVisitor
@@ -107,8 +108,6 @@ class GeneriCVisitor(parVisitor):
         self.writeGeneric(ctx.getText())
         return 
 
-
-DEBUG_FLAG = True
 
 inputPath = "./test/advanced/helpers.<c>" if DEBUG_FLAG else input("Input path:")
 outputPath = "./test/advanced/helpers.c"  if DEBUG_FLAG else  input("Output path:")
