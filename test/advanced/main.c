@@ -44,6 +44,24 @@ int main()
     printf("\ni:%d j:%d",*i_adr,*j_adr);
     printf("\nP:%d;%d Q:%d%d",p_adr->x,p_adr->y,q_adr->x,q_adr->y);
 
+    printf("\nBubbleSort");
+
+    int* c[10] = {4,6,1,3,2,8,9,0,5,7};
+
+    printf("\n");
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d at %d ",(int)c[i],i);
+    }
+
+    bubbleSort(&c,10);
+
+    printf("\n");
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d at %d ",(int)c[i],i);
+    }
+
     printf("\n");
     return 0;    
 }

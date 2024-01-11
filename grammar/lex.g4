@@ -13,5 +13,14 @@ BRACKET_CW: '}';
 COMMA: ',';
 EQUAL: '=';
 
-IDENTIFIER : [a-zA-Z*]+;
+IF: 'if';
+FOR: 'for';
+WHILE: 'while';
+
+INCREMENT : '++';
+DECREMENT : '--';
+
+LVALUE : [&]* [a-zA-Z*]+ ('['[a-zA-Z0-9*]+']')?;
+
+CONSTANT : '0' | [1-9][0-9]*;
 WS: [\r\t\n ] -> skip;

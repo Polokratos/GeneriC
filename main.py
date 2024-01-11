@@ -1,10 +1,12 @@
-DEBUG_FLAG = True
+DEBUG_MODE = True
+DEBUG_FLAG = DEBUG_MODE
 from antlr4 import *
 
-from generated.parVisitor import parVisitor
+from GeneriCVisitor import GeneriCVisitor
 from generated.lex import *
 from generated.par import *
-
+import subprocess
+"""
 class GeneriCVisitor(parVisitor):
 
     def __init__(self, outputPath):
@@ -107,14 +109,16 @@ class GeneriCVisitor(parVisitor):
     def visitType(self, ctx:par.TypeContext):
         self.writeGeneric(ctx.getText())
         return 
-
+"""
+#inputPath = "./test/negative/wrongHelpers.<c>" if DEBUG_FLAG else input("Input path:")
+#outputPath = "./test/negative/wrongHelpers.c"  if DEBUG_FLAG else  input("Output path:")
 
 inputPath = "./test/advanced/helpers.<c>" if DEBUG_FLAG else input("Input path:")
 outputPath = "./test/advanced/helpers.c"  if DEBUG_FLAG else  input("Output path:")
 
 if DEBUG_FLAG: # remove file so that code generator does not double stuff
-    import subprocess
     subprocess.run(["rm",outputPath])
+    pass
 
 inputStream = InputStream(open(inputPath,"r").read())
 
@@ -125,7 +129,15 @@ parser = par(stream)
 tree = parser.program()
 visitor = GeneriCVisitor(outputPath)
 
-visitor.visit(tree)
-
+FAIL_FLAG = False
+try:
+    visitor.visit(tree)
+except:
+    FAIL_FLAG = True
+    
 visitor.end()
-print("Done!")
+if FAIL_FLAG:
+    print("FAILED!")
+    subprocess.run(["rm",outputPath])    
+else:
+    print("Done!")

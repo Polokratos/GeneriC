@@ -1,4 +1,4 @@
-# Generated from grammar/par.g4 by ANTLR 4.13.1
+# Generated from ./par.g4 by ANTLR 4.13.1
 from antlr4 import *
 if "." in __name__:
     from .par import par
@@ -35,6 +35,15 @@ class parListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by par#function_name.
+    def enterFunction_name(self, ctx:par.Function_nameContext):
+        pass
+
+    # Exit a parse tree produced by par#function_name.
+    def exitFunction_name(self, ctx:par.Function_nameContext):
+        pass
+
+
     # Enter a parse tree produced by par#type_parameters.
     def enterType_parameters(self, ctx:par.Type_parametersContext):
         pass
@@ -53,12 +62,30 @@ class parListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by par#arguments.
+    def enterArguments(self, ctx:par.ArgumentsContext):
+        pass
+
+    # Exit a parse tree produced by par#arguments.
+    def exitArguments(self, ctx:par.ArgumentsContext):
+        pass
+
+
     # Enter a parse tree produced by par#args.
     def enterArgs(self, ctx:par.ArgsContext):
         pass
 
     # Exit a parse tree produced by par#args.
     def exitArgs(self, ctx:par.ArgsContext):
+        pass
+
+
+    # Enter a parse tree produced by par#body.
+    def enterBody(self, ctx:par.BodyContext):
+        pass
+
+    # Exit a parse tree produced by par#body.
+    def exitBody(self, ctx:par.BodyContext):
         pass
 
 
@@ -95,6 +122,78 @@ class parListener(ParseTreeListener):
 
     # Exit a parse tree produced by par#init_s.
     def exitInit_s(self, ctx:par.Init_sContext):
+        pass
+
+
+    # Enter a parse tree produced by par#if_s.
+    def enterIf_s(self, ctx:par.If_sContext):
+        pass
+
+    # Exit a parse tree produced by par#if_s.
+    def exitIf_s(self, ctx:par.If_sContext):
+        pass
+
+
+    # Enter a parse tree produced by par#for_s.
+    def enterFor_s(self, ctx:par.For_sContext):
+        pass
+
+    # Exit a parse tree produced by par#for_s.
+    def exitFor_s(self, ctx:par.For_sContext):
+        pass
+
+
+    # Enter a parse tree produced by par#while_s.
+    def enterWhile_s(self, ctx:par.While_sContext):
+        pass
+
+    # Exit a parse tree produced by par#while_s.
+    def exitWhile_s(self, ctx:par.While_sContext):
+        pass
+
+
+    # Enter a parse tree produced by par#function_call_s.
+    def enterFunction_call_s(self, ctx:par.Function_call_sContext):
+        pass
+
+    # Exit a parse tree produced by par#function_call_s.
+    def exitFunction_call_s(self, ctx:par.Function_call_sContext):
+        pass
+
+
+    # Enter a parse tree produced by par#function_call_args.
+    def enterFunction_call_args(self, ctx:par.Function_call_argsContext):
+        pass
+
+    # Exit a parse tree produced by par#function_call_args.
+    def exitFunction_call_args(self, ctx:par.Function_call_argsContext):
+        pass
+
+
+    # Enter a parse tree produced by par#arithmetic_s.
+    def enterArithmetic_s(self, ctx:par.Arithmetic_sContext):
+        pass
+
+    # Exit a parse tree produced by par#arithmetic_s.
+    def exitArithmetic_s(self, ctx:par.Arithmetic_sContext):
+        pass
+
+
+    # Enter a parse tree produced by par#arithmetic_expr.
+    def enterArithmetic_expr(self, ctx:par.Arithmetic_exprContext):
+        pass
+
+    # Exit a parse tree produced by par#arithmetic_expr.
+    def exitArithmetic_expr(self, ctx:par.Arithmetic_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by par#init_assign_s.
+    def enterInit_assign_s(self, ctx:par.Init_assign_sContext):
+        pass
+
+    # Exit a parse tree produced by par#init_assign_s.
+    def exitInit_assign_s(self, ctx:par.Init_assign_sContext):
         pass
 
 

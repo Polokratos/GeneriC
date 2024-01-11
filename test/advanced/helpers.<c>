@@ -28,3 +28,25 @@ int intId (int val)
 {
     return val;
 }
+
+void bubbleSort<T> (T* array, int length)
+{
+
+    for(int i = 0; i < length; i++)
+    {
+        int j = i;
+        while(j < length)
+        {
+            int comp = myComparator(&array[i],&array[j]);
+            if(comp > 0)
+            {
+                T val = array[i];
+                T rep = array[j];
+
+                array[j] = val;
+                array[i] = rep;
+            }
+            j++;
+        }
+    }
+}
