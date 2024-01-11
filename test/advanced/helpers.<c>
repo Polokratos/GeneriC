@@ -1,0 +1,30 @@
+
+
+T id<T>(T arg) { return arg; }
+
+void swap<T>(T* src, T* dst)
+{
+    T tmp;
+    tmp = *src;
+    *src = *dst;
+    *dst = tmp;
+}
+
+void doubleSwap<T,Q>(T* ta, T* tb, Q* qa, Q* qb)
+{
+    T tx;
+    tx = *ta;
+    Q qx;
+    qx = *qa;
+
+    *ta = *tb;
+    *qa = *qb;
+    
+    *tb = tx;
+    *qb = qx;
+}
+
+int intId (int val)
+{
+    return val;
+}

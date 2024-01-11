@@ -1,0 +1,5 @@
+
+T id <T>(T arg)
+{
+    return arg;
+}
